@@ -1,0 +1,9 @@
+# NEVER commit these — credentials and PHI risk
+private_key.pem
+*.key
+*.env
+.env.*
+fhir_a1c_gaps.py
+generate_jwks.py
+__pycache__/
+*.pyc

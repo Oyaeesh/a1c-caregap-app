@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A1C Care Gap Monitor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f6f2; --surface: #ffffff; --text: #1a1a1a;
+      --muted: #6b7280; --primary: #01696f; --border: #e5e7eb;
+      --font: 'Inter', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem; display: flex; justify-content: space-between;
+      align-items: center; position: sticky; top: 0; z-index: 100;
+    }
+    .logo { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.1rem; color: var(--primary); }
+    .logo svg { width: 32px; height: 32px; }
+    nav a { color: var(--muted); text-decoration: none; margin-left: 1.5rem; font-size: 0.9rem; }
+    nav a:hover { color: var(--primary); }
+    .hero { max-width: 860px; margin: 5rem auto; padding: 0 2rem; text-align: center; }
+    .badge {
+      display: inline-block; background: #e6f4f4; color: var(--primary);
+      border-radius: 999px; padding: 0.25rem 1rem; font-size: 0.8rem;
+      font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.25rem; }
+    .sub { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 2.5rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 960px; margin: 4rem auto; padding: 0 2rem; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .card-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .card p { font-size: 0.9rem; color: var(--muted); }
+    .security-section {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 4rem 2rem; text-align: center;
+    }
+    .security-section h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+    .security-section p { color: var(--muted); max-width: 560px; margin: 0 auto; font-size: 0.95rem; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1.5rem; }
+    .chip { background: #e6f4f4; color: var(--primary); border-radius: 999px; padding: 0.4rem 1rem; font-size: 0.8rem; font-weight: 600; }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 0.85rem; color: var(--muted); margin-top: 4rem; }
+    footer a { color: var(--primary); text-decoration: none; margin: 0 0.75rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="A1C Care Gap Monitor logo">
+        <circle cx="16" cy="16" r="14" stroke="#01696f" stroke-width="2.5"/>
+        <path d="M10 17 L14 13 L17 16 L22 10" stroke="#01696f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="22" cy="10" r="2" fill="#01696f"/>
+      </svg>
+      A1C Care Gap Monitor
+    </div>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="badge">FHIR R4 · SMART on FHIR · HIPAA Compliant</div>
+    <h1>Closing A1C Care Gaps Through Intelligent EHR Integration</h1>
+    <p class="sub">A backend FHIR application that reads A1C observation data from eClinicalWorks to identify open, met, and excluded diabetes care gaps — supporting quality measure reporting and population health workflows.</p>
+  </section>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Real-Time Gap Status</h3>
+      <p>Reads A1C Observations via FHIR R4 to classify each patient's care gap as Open, Met, or Excluded in real time.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔐</div>
+      <h3>SMART Backend Services</h3>
+      <p>Uses OAuth 2.0 Client Credentials with RS384 JWT assertions. No PHI is stored outside the authorized eCW environment.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏥</div>
+      <h3>eClinicalWorks Native</h3>
+      <p>Designed specifically for eCW FHIR R4 endpoints. Compatible with production and sandbox environments.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>Quality Measure Ready</h3>
+      <p>Outputs gap status aligned with HEDIS and CMS quality measures for HbA1c (Diabetes Care measure set).</p>
+    </div>
+  </div>
+
+  <section class="security-section">
+    <h2>Security &amp; Compliance</h2>
+    <p>This application accesses protected health information (PHI) under a HIPAA Business Associate Agreement with eClinicalWorks. All data in transit is encrypted via TLS 1.2+. No PHI is persisted outside the authorized eCW FHIR environment.</p>
+    <div class="chips">
+      <span class="chip">HIPAA Compliant</span>
+      <span class="chip">TLS 1.2+ Encryption</span>
+      <span class="chip">OAuth 2.0 / JWT</span>
+      <span class="chip">FHIR R4</span>
+      <span class="chip">No PHI Storage</span>
+      <span class="chip">Audit Logging</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </p>
+    <p style="margin-top:0.75rem">© 2026 A1C Care Gap Monitor · For authorized clinical use only</p>
+  </footer>
+</body>
+</html>

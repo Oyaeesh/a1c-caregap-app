@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – A1C Care Gap Monitor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; max-width: 720px; margin: 3rem auto; padding: 0 2rem; color: #1a1a1a; line-height: 1.8; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #01696f; }
+    h2 { font-size: 1.15rem; margin-top: 2rem; margin-bottom: 0.5rem; font-weight: 600; }
+    p, li { font-size: 0.95rem; color: #374151; }
+    ul { padding-left: 1.5rem; }
+    .updated { color: #6b7280; font-size: 0.85rem; margin-bottom: 2rem; }
+    a { color: #01696f; }
+  </style>
+</head>
+<body>
+  <a href="index.html">← Back</a>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: April 2026</p>
+
+  <h2>1. Overview</h2>
+  <p>A1C Care Gap Monitor ("Application") is a healthcare interoperability application that integrates with eClinicalWorks (eCW) via FHIR R4 APIs to support clinical quality improvement workflows. This Privacy Policy explains how we access, use, and protect Protected Health Information (PHI) and personal data.</p>
+
+  <h2>2. HIPAA Compliance</h2>
+  <p>This Application operates as a Business Associate under HIPAA. We access PHI solely through authorized eClinicalWorks FHIR endpoints under a Business Associate Agreement (BAA). All PHI access is:</p>
+  <ul>
+    <li>Authorized via OAuth 2.0 / SMART on FHIR protocols</li>
+    <li>Limited to the minimum necessary to perform gap identification functions</li>
+    <li>Transmitted exclusively over TLS 1.2+ encrypted connections</li>
+    <li>Never stored, copied, or retained outside the authorized eCW environment</li>
+  </ul>
+
+  <h2>3. Data We Access</h2>
+  <p>Through eClinicalWorks FHIR R4, we access:</p>
+  <ul>
+    <li>Patient demographic identifiers (to match care gap records)</li>
+    <li>HbA1c Observation resources (LOINC code 4548-4)</li>
+    <li>Condition resources (diabetes diagnosis codes)</li>
+    <li>MeasureReport resources (care gap status)</li>
+  </ul>
+  <p>We do not access, read, or store financial information, social security numbers, or data unrelated to diabetic A1C quality measures.</p>
+
+  <h2>4. Data Storage &amp; Retention</h2>
+  <p>This Application does not maintain a persistent PHI database. Data is queried in real time from the eCW FHIR server, processed in memory, and returned to authorized clinical users only. No PHI is written to disk, logged to external services, or retained beyond the active session.</p>
+
+  <h2>5. Data Security</h2>
+  <ul>
+    <li>All API communication uses TLS 1.2 or higher</li>
+    <li>Authentication uses RS384-signed JWT assertions with rotating key pairs</li>
+    <li>Access tokens are short-lived (≤5 minutes) per SMART Backend Services specification</li>
+    <li>JWKS (public key set) is hosted at a public endpoint; private keys are stored only in secured server environments and never committed to version control</li>
+    <li>Audit logs record access timestamps, resource types accessed, and user/system identifiers — with no PHI in log entries</li>
+  </ul>
+
+  <h2>6. Authorized Users</h2>
+  <p>Access is limited to credentialed clinical and administrative staff within the covered healthcare entity that has authorized this application within their eClinicalWorks environment. No third-party sharing occurs.</p>
+
+  <h2>7. Your Rights</h2>
+  <p>Patients have rights under HIPAA including access to their records, amendment, and accounting of disclosures. Please contact your healthcare provider to exercise these rights.</p>
+
+  <h2>8. Contact</h2>
+  <p>For privacy inquiries, contact the authorized administrator of this application within your healthcare organization.</p>
+</body>
+</html>
