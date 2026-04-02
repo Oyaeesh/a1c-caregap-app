@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "use": "sig",
+      "alg": "RS384",
+      "kid": "key1",
+      "n": "REPLACE_WITH_YOUR_BASE64URL_MODULUS_AFTER_RUNNING_OPENSSL",
+      "e": "AQAB"
+    }
+  ]
+}
